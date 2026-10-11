@@ -1,1 +1,103 @@
-Initializing
+# Repolex Knowledge Graph of aio-libs/aiohttp-theme
+
+RDF knowledge graph data for [aio-libs/aiohttp-theme](https://github.com/aio-libs/aiohttp-theme), parsed by [repolex](https://repolex.ai).
+
+> **Note**: This data is experimental and subject to change without notice.
+
+## How to use this data
+
+The easiest way to get started is to install the [rlex](https://github.com/repolex-ai/rlex) query tool:
+
+```bash
+cargo install --git https://github.com/repolex-ai/rlex
+```
+
+Verify the install:
+
+```bash
+rlex --help
+```
+
+**rlex is designed to be used primarily by LLMs in a terminal.** Start up your favorite AI assistant and ask it to use rlex. It handles the SPARQL — you just ask questions in plain English.
+
+To load this repo's data:
+
+```bash
+rlex download aio-libs/aiohttp-theme
+```
+
+Consult `rlex --help` for other options, including SPARQL queries, HTTP server, and interactive visualization.
+
+## Data structure
+
+All data is stored as gzip-compressed [N-Quads](https://www.w3.org/TR/n-quads/) (`.nq.gz`), a standard RDF format that can be loaded into any triplestore or graph database.
+
+```
+.
+├── aggregate
+│   ├── ast
+│   │   └── 6bb6d4bbf4c025ed52d0369d448af0ff592ded2d
+│   │       └── chunk-001.nq.gz
+│   └── repolex
+│       └── 6bb6d4bbf4c025ed52d0369d448af0ff592ded2d
+│           └── chunk-001.nq.gz
+├── blob
+│   ├── 04af7cbc60e9456aa8dbe89391b9326e4c1af4b3.nq.gz
+│   ├── 251e6a32b7bcb95878d86fc6f273f0be5870da7e.nq.gz
+│   ├── 2a924f1d6a8bc930c5296bdb2d5c2d3e39b04a1c.nq.gz
+│   ├── 38f7586fdcce5fedcd7a31753b08ed2f74cd6fe0.nq.gz
+│   ├── 39640332f2a100c322c325ce9e940f7129255cbf.nq.gz
+│   ├── 49bada1735353522f0d1cf99dd06c05483673e61.nq.gz
+│   ├── 4a0eab4e9b90c2dad613e8f934993478c7ef0615.nq.gz
+│   ├── 500c0d560e398eb3d17204fc7651d4d343de5b82.nq.gz
+│   ├── 6200449100f6bb41438dc0db95d8215e464d2036.nq.gz
+│   ├── 6d4785af13c0df318c2cdf36980a420980ecc271.nq.gz
+│   ├── 82ad04cdf9c42d12476c0b0209fd4d32d00661f5.nq.gz
+│   ├── 861efb376cb9d005be7f69716539211fd107d400.nq.gz
+│   ├── 8f5f63174bd25be6026b26a4d57c1ecc242a6521.nq.gz
+│   ├── 949892523e0f7a495da2304b6206a43970b3e2cb.nq.gz
+│   ├── 9caeb972bf6845d3fbb0073351be221ba28e0893.nq.gz
+│   ├── a8e551f738ad663b2c721e6fa8aed34c231c2261.nq.gz
+│   ├── aa1b7c6890ce12f157c74a9114afc87e6cdae9ef.nq.gz
+│   ├── bfcb8b4315ea4f16bd25de52782e7ebd59521c9d.nq.gz
+│   ├── d111ee3c016b816471bf74abba4bebe2befe7227.nq.gz
+│   ├── d938d6995847d22bcb9e9df2a9682ee689f799b7.nq.gz
+│   ├── f2957d71afc0880ffd7bdee0c0f58de5f0f75f94.nq.gz
+│   ├── fbebff6456f9c9bf0fe3223892a8c770e3a58203.nq.gz
+│   ├── fe415b7c278fb2abf95d64f27530ebe0d9584c1d.nq.gz
+│   └── ff51d9ee4f24b3b1fa715101dab7d2588cb21a61.nq.gz
+├── branch
+│   └── branch.nq.gz
+├── commit
+│   └── commit.nq.gz
+├── filetree
+│   └── 6bb6d4bbf4c025ed52d0369d448af0ff592ded2d.nq.gz
+├── issue
+│   └── issue.nq.gz
+├── pr
+│   └── pr.nq.gz
+└── tag
+    └── tag.nq.gz
+
+13 directories, 32 files
+```
+
+| Directory | What it contains |
+|-----------|-----------------|
+| `blob/` | Per-file AST graphs, content-addressed by git blob SHA. Each file in the source repo gets its own graph. |
+| `aggregate/ast/` | Combined AST graph per parsed commit. Merges all blob graphs for a snapshot of the entire codebase at that point. |
+| `aggregate/lsp/` | Language Server Protocol enrichment: resolved symbols, definitions, references, and type information. |
+| `aggregate/dataflow/` | Interprocedural data flow edges between functions and modules. |
+| `aggregate/repolex/` | Combined graph (AST + LSP + dataflow) per commit. |
+| `commit/` | Git commit metadata (author, date, message, parent links). |
+| `branch/` | Branch metadata. |
+| `tag/` | Tag metadata. |
+| `filetree/` | File tree snapshots per commit (which files existed and their blob SHAs). |
+| `audit/` | Code architecture and graph audit reports per commit. |
+
+## Source repository
+
+[aio-libs/aiohttp-theme](https://github.com/aio-libs/aiohttp-theme)
+
+---
+*Parsed on 2026-10-11 by [repolex](https://repolex.ai)*
